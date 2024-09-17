@@ -10,6 +10,9 @@
   "dependencies": {
     "@fontsource/merriweather": "^5.0.8",
     "@fontsource-variable/montserrat": "^5.0.17",
+    "@microsoft/applicationinsights-react-js": "^17.3.2",
+    "@microsoft/applicationinsights-web": "^3.3.2",
+    "@gatsbyjs/reach-router": "^2.0.1",
     "gatsby": "^5.13.7",
     "gatsby-plugin-feed": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",

@@ -5,6 +5,29 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { globalHistory } from '@gatsbyjs/reach-router';
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+const reactPlugin = new ReactPlugin();
+const appInsights = new ApplicationInsights({
+  config: {
+    connectionString: "",
+    extensions: [reactPlugin],
+    extensionConfig: {
+      [reactPlugin.identifier]: { 
+        history: globalHistory,
+       },
+    },
+    enableAjaxErrorStatusText: true,
+    enableAjaxPerfTracking: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    enableUnhandledPromiseRejectionTracking: true,
+  },
+});
+appInsights.loadAppInsights();
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
